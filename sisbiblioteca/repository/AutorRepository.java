@@ -13,9 +13,9 @@ import java.util.Optional;
 public interface AutorRepository extends JpaRepository<Autor, Long> {
     List<Autor> findByNomeContainingIgnoreCase(String nome);
 
-    @Query("select distinct a from Autor a left join fetch a.livros")
+    @Query("")
     List<Autor> findAllWithLivros();
 
-    @Query("select distinct a from Autor a left join fetch a.livros where a.id = :id")
+    @Query("")
     Optional<Autor> findByIdWithLivros(@Param("id") Long id);
 }
