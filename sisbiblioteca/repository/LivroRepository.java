@@ -14,9 +14,9 @@ public interface LivroRepository extends JpaRepository<Livro, Long>{
     List<Livro> findByTituloContainingIgnoreCase(String titulo);
     List<Livro> findByAutorId(Long autorId);
 
-    @Query("select l from Livro l join fetch l.autor")
+    @Query("")
     List<Livro> findAllWithAutor();
 
-    @Query("select l from Livro l join fetch l.autor where l.id = :id")
+    @Query()
     Optional<Livro> findByIdWithAutor(@Param("id") Long id);
 }
